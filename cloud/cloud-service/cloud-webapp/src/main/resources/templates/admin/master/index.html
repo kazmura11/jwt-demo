@@ -1,0 +1,49 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>マスター管理画面</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/dist/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/master/index.css}" />
+</head>
+
+<body>
+    <header id="header" class="header">
+        <h1 class="h3 text-center">マスター管理</h1>
+    </header>
+    <div id="main-content" class="mx-auto">
+        <br />
+        <h1>マスター種別を選択してください。</h1>
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <td style="width: 500px">マスター種別</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ユーザー</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary" onclick="location.href='/admin/master/users'">選択</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <div id="main-content" class="mx-auto">
+            <form id="login-form" method="POST" th:action="@{/admin/logout}">
+                <div class="form-group">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" value="logout">ログアウト</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

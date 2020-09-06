@@ -1,0 +1,59 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ユーザー新規登録</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/dist/css/bootstrap.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/admin/master/users/register.css}" />
+</head>
+
+<body>
+    <header id="header" class="header">
+        <h1 class="h3 text-center">ユーザー新規登録</h1>
+    </header>
+    <br />
+    <div id="main-content" class="mx-auto">
+        <form th:action="@{/admin/master/users/register}" th:object="${userForm}" method="post">
+            <div class="alert alert-danger" th:if="${#fields.hasGlobalErrors()}">
+                <p th:each="err : ${#fields.globalErrors()}" th:text="${err}"></p>
+            </div>
+            <dl>
+                <dt>
+                    <label for="emailAddress">メールアドレス</label>
+                </dt>
+                <dd>
+                    <input type="text" class="form-control" name="emailAddress" th:field="*{emailAddress}" />
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"></p>
+                </dd>
+                <dt>
+                    <label for="name">名前</label>
+                </dt>
+                <dd>
+                    <input type="text" class="form-control" name="name" th:field="*{name}" />
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+                </dd>
+                <dt>
+                    <label for="password">パスワード</label>
+                </dt>
+                <dd>
+                    <input type="password" class="form-control" name="password" th:value="*{password}" />
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+                </dd>
+                <dt>
+                    <label for="adminFlag">管理者フラグ</label>
+                </dt>
+                <dd>
+                    <input type="checkbox" class="form-control" name="adminFlag" th:field="*{adminFlag}" />
+                </dd>
+            </dl>
+            <br /> <input type="submit" class="btn btn-primary" value="登録" />
+            <p style="text-align: right">
+                <input type="submit" class="btn btn-secondary" name="return" value="戻る" />
+            </p>
+        </form>
+        <br />
+    </div>
+</body>
+</html>

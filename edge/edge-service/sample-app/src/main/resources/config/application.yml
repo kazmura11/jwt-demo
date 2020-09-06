@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/demo
+    username: demo
+    password: demo
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: false
+        format_sql: true
+  profiles:
+    include: common,unittest
+
+logging:
+  file: "/var/log/sample-app.log"
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS}[%thread][%-5level][%-40.40logger{39}] :%msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS}[%thread][%-5level][%-40.40logger{39}] :%msg%n"
+  level:
+    root: INFO
+    com.example.jwt_demo.sample_app: DEBUG
+    org.hibernate: ERROR
+

@@ -1,0 +1,28 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse
+.classpath
+.factorypath
+.project
+.settings/
+
+# Spring
+.springBeans
+
+# Maven
+target/
+
+# Build
+out/
+build/
+bin/
+
+# Others
+*.log
+*.swp
+*.bak
+*.orig
